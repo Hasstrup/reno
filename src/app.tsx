@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { CompanyListPage } from '@/Pages/CompanyListPage/CompanyListPage';
 
 class App extends Component {
-    render() {
-        return (
-            <div> 
-              Reno app
-            </div>
-        )
-    }
+  render() {
+    return <CompanyListPage />;
+  }
 }
 
-export default App
+export default App;

@@ -10,7 +10,10 @@
 		"strict": true,
 		"esModuleInterop": true,
 		"jsx": "react",
-		"baseUrl": "./src",
+        "baseUrl": ".",
+        "paths": {
+			"@/*": ["src/*"]
+          },
 		"lib": [
 			"es2015",
 			"dom.iterable",
