@@ -43,6 +43,10 @@ export const CompanyListItemStyles = createUseStyles({
   RowContainer: {
     height: "150px",
   },
+  TextContainer: {
+    justifyContent: "flex-start !important"
+  },
+
   CompanyEntryContainer: {
     paddingBottom: "2%",
   },

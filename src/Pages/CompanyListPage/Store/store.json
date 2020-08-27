@@ -1,0 +1,125 @@
+{
+  "data": [
+    {
+      "legend": true,
+      "title": "Add new vendor",
+      "imageUrl": "https://www.materialui.co/materialIcons/content/add_circle_grey_192x192.png",
+      "cells": [
+        {
+          "value": "Product description",
+          "type": "string"
+        },
+        {
+          "value": "Overall score",
+          "type": "rating"
+        },
+        {
+          "value": "Pricing",
+          "type": "string"
+        },
+        {
+          "value": "Funding History",
+          "type": "string",
+          "children": [
+            {
+              "value": "Founded",
+              "type": "string"
+            },
+            {
+              "value": "Founders",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "value": "Company Info",
+          "type": "string"
+        },
+        {
+          "value": "Features",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "title": "Box",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png",
+      "cells": [
+        {
+          "value": "Box is a modern content management",
+          "type": "string"
+        },
+        {
+          "value": 60,
+          "type": "rating"
+        },
+        {
+          "value": "box.com/pricing",
+          "type": "string"
+        },
+        {
+          "value": "Total funding of $150m",
+          "type": "string",
+          "children": [
+            {
+              "value": "2005",
+              "type": "string"
+            },
+            {
+              "value": "Josh Hart",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "value": "www.box.com",
+          "type": "string"
+        },
+        {
+          "value": "5 different features",
+          "type": "string"
+        }
+      ]
+    },
+    {
+        "title": "Box",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png",
+        "cells": [
+          {
+            "value": "Box is a modern content management",
+            "type": "string"
+          },
+          {
+            "value": 60,
+            "type": "rating"
+          },
+          {
+            "value": "box.com/pricing",
+            "type": "string"
+          },
+          {
+            "value": "Total funding of $150m",
+            "type": "string",
+            "children": [
+              {
+                "value": "2005",
+                "type": "string"
+              },
+              {
+                "value": "Josh Hart",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "value": "www.box.com",
+            "type": "string"
+          },
+          {
+            "value": "5 different features",
+            "type": "string"
+          }
+        ]
+      }
+  ]
+}
