@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { List,  Button } from "antd";
+import { List, Button } from "antd";
 import { CompanyListPageProps } from "./CompanyListPage.types";
 import { CompanyListPageStyles as useStyles } from "./CompanyListPage.styles";
 import { CompanyListItem } from "@/Pages/CompanyListPage/Components/CompanyListItem/CompanyListItem";
@@ -9,7 +9,7 @@ import store from "./Store/store.json";
 const MIN_THRESHOLD_HIT_MESSAGE = "Oops you have to leave at least one vendor";
 const MIN_THRESHOLD_COUNT = 2;
 
-export const CompanyListPage: FC<CompanyListPageProps> = (props) => {
+export const CompanyListPage: FC<CompanyListPageProps> = () => {
   const classes = useStyles();
   const source = JSON.parse(JSON.stringify(store)).data as ListItem[];
   const [dataSource, setDataSource] = useState(source);
@@ -47,36 +47,41 @@ export const CompanyListPage: FC<CompanyListPageProps> = (props) => {
     // add to the legend
     _source[0].cells.push({ value: criteriaKey, type: "string", children: [] });
     _source = _source.map((item: ListItem, index: number) => {
-        if(!index) return item; // should skip the first entry
-        return {
-          ...item,
-          cells: [
-            ...item.cells,
-            {
-              value: `value for criteria: ${criteriaKey} on col: ${index}`,
-              type: "string",
-              children: [],
-            },
-          ],
-        };
+      if (!index) return item; // should skip the first entry
+      return {
+        ...item,
+        cells: [
+          ...item.cells,
+          {
+            value: `value for criteria: ${criteriaKey} on col: ${index}`,
+            type: "string",
+            children: [],
+          },
+        ],
+      };
     });
-    setDataSource(_source)
+    setDataSource(_source);
   };
 
   const removeCriterion = (key: string) => {
-    const _source = [...dataSource]
+    const _source = [...dataSource];
     const splitKey = key.split("-");
     const targetIndex = parseInt(splitKey[splitKey.length - 1]);
     _source.forEach((item: ListItem) => {
-      item.cells.splice(targetIndex, 1)
-    })
-    setDataSource(_source)
-  }
+      item.cells.splice(targetIndex, 1);
+    });
+    setDataSource(_source);
+  };
 
   return (
     <List
       grid={{ gutter: 1, column: dataSource.length }}
-      header={<Button onClick={addNewCriterion}>{`Add new criteria`}</Button>}
+      header={
+        <Button
+          onClick={addNewCriterion}
+          className="add__new__criteria"
+        >{`Add new criteria`}</Button>
+      }
       dataSource={dataSource}
       bordered
       renderItem={(item: ListItem, index: number) => {
