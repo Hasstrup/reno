@@ -1,23 +1,38 @@
 import React, { FC, useState } from "react";
 import clsx from "classnames";
 import { Row, Divider, Col, Typography, Progress } from "antd";
-import { RightOutlined, CloseCircleFilled } from "@ant-design/icons";
+import {
+  RightOutlined,
+  CloseCircleFilled,
+  DownOutlined,
+} from "@ant-design/icons";
 import { CompanyListItemStyles as useStyles } from "@/Pages/CompanyListPage/Components/CompanyListItem/CompanyListItem.styles";
-import { LineItemProps } from "@/Pages/CompanyListPage/Components/CompanyListItem/CompanyListItem.types";
+import {
+  LineItemProps,
+  ListItemCell,
+} from "@/Pages/CompanyListPage/Components/CompanyListItem/CompanyListItem.types";
+
+const RATING_IDENTIFIER = "rating";
 
 export const LineItem: FC<LineItemProps> = (props) => {
   const classes = useStyles();
-
   const LegendLineItem = () => (
     <>
-      <Row className={classes.Row}>
+      <Row
+        className={clsx(classes.Row, classes.Clickable)}
+        onClick={(_) => props.toggleChildNodesVisible(props.identifier)}
+      >
         {props.cell.children?.length && (
           <Col span={2}>
-            <RightOutlined className={classes.Caret} size={8} />
+            {props.childNodesVisible ? (
+              <DownOutlined className={classes.Caret} size={8} />
+            ) : (
+              <RightOutlined className={classes.Caret} size={8} />
+            )}
           </Col>
         )}
 
-        <Col span={20}>
+        <Col span={props.cell.children?.length ? 18 : 20}>
           <Typography.Paragraph
             className={clsx(classes.Text, classes.MainText)}
           >
@@ -36,7 +51,7 @@ export const LineItem: FC<LineItemProps> = (props) => {
     <>
       <Row className={clsx(classes.Row, classes.CompanyEntryContainer)}>
         <Col span={24} className={classes.ContentContainer}>
-          {props.cell.type === "rating" ? (
+          {props.cell.type === RATING_IDENTIFIER ? (
             <Progress
               type="circle"
               percent={props.cell.value as number}
@@ -64,7 +79,11 @@ export const LineItem: FC<LineItemProps> = (props) => {
       >
         <Col
           span={24}
-          className={clsx(classes.ContentContainer, classes.TextContainer)}
+          className={
+            props.legendNode
+              ? clsx(classes.ContentContainer, classes.TextContainer)
+              : classes.ContentContainer
+          }
         >
           <Typography.Paragraph
             className={clsx(classes.Text, classes.MainText)}
@@ -81,8 +100,8 @@ export const LineItem: FC<LineItemProps> = (props) => {
     <>
       {props.legendNode ? <LegendLineItem /> : <StandardLineItem />}
       {props.childNodesVisible &&
-        props.childrenNodes.map((item: any) => (
-          <ChildLineItem child={item} {...props} />
+        props.childrenNodes.map((item: ListItemCell) => (
+          <ChildLineItem child={item} key={item.value} {...props} />
         ))}
     </>
   );

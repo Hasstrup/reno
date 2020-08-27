@@ -11,15 +11,27 @@ export const CompanyListItem: FC<CompanyListItemProps> = (props) => {
   return (
     <>
       <Card
-        title={<HeaderTitle name={item.title} image={item.imageUrl} />}
+        title={
+          <HeaderTitle
+            name={item.title}
+            image={item.imageUrl}
+            legend={!!item.legend}
+            colIdentifier={props.identifier}
+            handleAddNode={props.addNewVendor}
+            handleRemoveNode={props.removeVendor}
+          />
+        }
         className={classes.CardContainer}
       >
-        {item.cells.map((cell: ListItemCell) => (
+        {item.cells.map((cell: ListItemCell, index: number) => (
           <LineItem
+            key={`cell-${index}`}
             cell={cell}
             legendNode={!!item.legend}
-            childNodesVisible={true}
+            childNodesVisible={props.visibilityMap[`cell-${index}`]}
             childrenNodes={cell.children || []}
+            toggleChildNodesVisible={props.toggleChildNodesVisible}
+            identifier={`cell-${index}`}
           />
         ))}
       </Card>

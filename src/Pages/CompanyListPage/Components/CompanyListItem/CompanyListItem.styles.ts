@@ -13,6 +13,7 @@ export const CompanyListItemStyles = createUseStyles({
   HeaderImage: {
     height: "50px",
     borderRadius: "50%",
+    marginBottom: "10px",
     width: "50px",
   },
   MainText: {
@@ -26,8 +27,15 @@ export const CompanyListItemStyles = createUseStyles({
     textAlign: "center",
     fontSize: "12px",
   },
+  Clickable: {
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
+
   ChildRow: {
-      paddingLeft: '40px'
+    paddingLeft: "40px !important",
+    backgroundColor: "#F4F6F6",
   },
   ImageContainer: {
     display: "flex",
@@ -44,7 +52,7 @@ export const CompanyListItemStyles = createUseStyles({
     height: "150px",
   },
   TextContainer: {
-    justifyContent: "flex-start !important"
+    justifyContent: "flex-start !important",
   },
 
   CompanyEntryContainer: {
@@ -53,6 +61,7 @@ export const CompanyListItemStyles = createUseStyles({
   Row: {
     height: "40px",
     paddingTop: "7px",
+    paddingLeft: "7px",
   },
   ContentContainer: {
     justifyContent: "center",

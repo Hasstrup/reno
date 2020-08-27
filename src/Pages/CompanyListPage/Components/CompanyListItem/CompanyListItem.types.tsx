@@ -1,11 +1,19 @@
 export interface CompanyListItemProps {
     item: ListItem
+    toggleChildNodesVisible: (key: string) => void;
+    visibilityMap: any;
+    addNewVendor: () => void;
+    removeVendor: (key: string) => void;
+    identifier: string;
 }
 
 export interface HeaderTitleProps {
    image?: string;
    name?: string;
-   handleRemoveNode?: () => null
+   legend: boolean;
+   colIdentifier: string;
+   handleRemoveNode: (key: string) => void
+   handleAddNode: () => void
 }
 
 export interface LineItemProps {
@@ -13,7 +21,8 @@ export interface LineItemProps {
     legendNode: boolean;
     childNodesVisible: boolean;
     childrenNodes: ListItemCell[];
-    toggleChildNodesVisible?: () => void
+    toggleChildNodesVisible: (key: string) => void
+    identifier: string
 }
 
 
