@@ -68,6 +68,6 @@
       "raf/polyfill"
     ],
     "testRegex": ".spec.(jsx|js|ts|tsx)$",
-    "setupTestFrameworkScriptFile": "<rootDir>src/setupTests.js"
+    "setupFilesAfterEnv": ["<rootDir>src/setupTests.js"]
   }
 }
