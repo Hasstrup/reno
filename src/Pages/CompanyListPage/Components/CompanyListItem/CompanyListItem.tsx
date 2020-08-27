@@ -31,6 +31,7 @@ export const CompanyListItem: FC<CompanyListItemProps> = (props) => {
             childNodesVisible={props.visibilityMap[`cell-${index}`]}
             childrenNodes={cell.children || []}
             toggleChildNodesVisible={props.toggleChildNodesVisible}
+            removeCriterion={props.removeCriterion}
             identifier={`cell-${index}`}
           />
         ))}

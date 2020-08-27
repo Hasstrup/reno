@@ -4,6 +4,7 @@ export interface CompanyListItemProps {
     visibilityMap: any;
     addNewVendor: () => void;
     removeVendor: (key: string) => void;
+    removeCriterion: (key: string) => void;
     identifier: string;
 }
 
@@ -22,6 +23,7 @@ export interface LineItemProps {
     childNodesVisible: boolean;
     childrenNodes: ListItemCell[];
     toggleChildNodesVisible: (key: string) => void
+    removeCriterion: (key: string) => void;
     identifier: string
 }
 

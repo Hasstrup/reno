@@ -40,7 +40,10 @@ export const LineItem: FC<LineItemProps> = (props) => {
           </Typography.Paragraph>
         </Col>
         <Col span={2}>
-          <CloseCircleFilled className={classes.CloseIcon} />
+          <CloseCircleFilled
+            onClick={(_) => props.removeCriterion(props.identifier)}
+            className={clsx(classes.CloseIcon, classes.Clickable)}
+          />
         </Col>
       </Row>
       <Divider className={classes.Divider} />
