@@ -9,7 +9,7 @@ import store from "./Store/store.json";
 const MIN_THRESHOLD_HIT_MESSAGE = "Oops you have to leave at least one vendor";
 const MIN_THRESHOLD_COUNT = 2;
 
-export const CompanyListPage: FC<CompanyListPageProps> = (props) => {
+export const CompanyListPage: FC<CompanyListPageProps> = () => {
   const classes = useStyles();
   const source = JSON.parse(JSON.stringify(store)).data as ListItem[];
   const [dataSource, setDataSource] = useState(source);
